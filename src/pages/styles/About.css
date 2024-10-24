@@ -1,0 +1,48 @@
+.about-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.email-signup {
+  margin-top: 30px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.signup-form label {
+  font-size: 1.2rem;
+}
+
+.signup-form input {
+  padding: 10px;
+  width: 300px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.signup-form button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #2980b9;
+}
+
+.form-message {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #2ecc71;
+}

@@ -1,3 +1,4 @@
+/* General reset for padding and margin */
 * {
   margin: 0;
   padding: 0;
@@ -63,27 +64,4 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-/* Add this section to control sport button styles */
-.sport-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #2980b9;
 }
