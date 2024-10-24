@@ -1,6 +1,6 @@
 import "../index.css"; // Import the CSS file
 
-const Frisbee = () => {
+const Basketball = () => {
   return (
     <div className="container">
       <h2>Welcome to Basketball!</h2>
@@ -10,4 +10,4 @@ const Frisbee = () => {
   );
 };
 
-export default Frisbee;
+export default Basketball;

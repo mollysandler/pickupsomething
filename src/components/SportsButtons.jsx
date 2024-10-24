@@ -20,6 +20,16 @@ const SportButtons = () => {
           <button>Ultimate Frisbee</button>
         </Link>
       </div>
+      <div>
+        <Link to="/dodgeball">
+          <button>Dodgeball</button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/runclub">
+          <button>Run Clubs</button>
+        </Link>
+      </div>
     </div>
   );
 };
