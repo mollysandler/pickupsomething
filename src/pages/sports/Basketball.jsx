@@ -1,4 +1,4 @@
-import "../index.css"; // Import the CSS file
+import "../../index.css"; // Import the CSS file
 
 const Basketball = () => {
   return (

@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Pickleball from "./pages/Pickleball";
-import Basketball from "./pages/Basketball";
-import Dodgeball from "./pages/Dodgeball";
-import RunClub from "./pages/RunClub";
-import Frisbee from "./pages/frisbee";
+import Pickleball from "./pages/sports/Pickleball";
+import Basketball from "./pages/sports/Basketball";
+import Dodgeball from "./pages/sports/Dodgeball";
+import RunClub from "./pages/sports/RunClub";
+import Frisbee from "./pages/sports/Frisbee";
 
 import Home from "./pages/Home";
 import Leaderboard from "./pages/Leaderboard";
 import About from "./pages/About";
-// import SearchSports from "./pages/SearchSports";
+import SearchSports from "./pages/SearchSports";
 // import StartSport from "./pages/StartSport";
 // import RegisterSport from "./pages/RegisterSport";
 
@@ -22,8 +22,8 @@ function App() {
           {/* Homepage with buttons */}
           <Route path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
-          {/* <Route path="/search-sports" element={<SearchSports />} />
-        <Route path="/start-sport" element={<StartSport />} />
+          <Route path="/search-sports" element={<SearchSports />} />
+          {/* <Route path="/start-sport" element={<StartSport />} />
         <Route path="/register-sport" element={<RegisterSport />} />*/}
           <Route path="/about" element={<About />} />
 
