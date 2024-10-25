@@ -8,9 +8,9 @@ import Frisbee from "./pages/sports/Frisbee";
 import Home from "./pages/Home";
 import Leaderboard from "./pages/Leaderboard";
 import About from "./pages/About";
-import SearchSports from "./pages/SearchSports";
-// import StartSport from "./pages/StartSport";
-// import RegisterSport from "./pages/RegisterSport";
+import Search from "./pages/Search";
+import StartSport from "./pages/StartSport";
+import RegisterSport from "./pages/RegisterSport";
 
 import Layout from "./components/Layout"; // Import Layout
 
@@ -22,11 +22,10 @@ function App() {
           {/* Homepage with buttons */}
           <Route path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/search-sports" element={<SearchSports />} />
-          {/* <Route path="/start-sport" element={<StartSport />} />
-        <Route path="/register-sport" element={<RegisterSport />} />*/}
+          <Route path="/search-sports" element={<Search />} />
+          <Route path="/start-sport" element={<StartSport />} />
+          <Route path="/register-sport" element={<RegisterSport />} />
           <Route path="/about" element={<About />} />
-
           <Route path="/pickleball" element={<Pickleball />} />
           <Route path="/basketball" element={<Basketball />} />
           <Route path="/dodgeball" element={<Dodgeball />} />
