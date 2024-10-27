@@ -15,7 +15,7 @@ const SportButtons = () => {
           <Link to="/leaderboard">Leaderboard</Link>
         </li>
         <li className="navbar-item">
-          <Link to="/start-sport">Start a Sport</Link>
+          <Link to="/start-sport">Request a Sport</Link>
         </li>
         <li className="navbar-item">
           <Link to="/register-sport">Register a Sport</Link>

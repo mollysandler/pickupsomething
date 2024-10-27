@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
-import "./styles/About.css";
+import "./styles/formStyles.css";
+import sportsData from "../useful/sports.json"; // Import the sports data
 
 const RegisterSport = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    sport: "",
     location: "",
-    message: "",
+    sport: "",
     mainContact: "",
+    message: "",
   });
   const [message, setMessage] = useState("");
+  const [sports, setSports] = useState([]);
+
+  useEffect(() => {
+    setSports(sportsData);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,7 +28,7 @@ const RegisterSport = () => {
 
     emailjs
       .send(
-        "service_tvcmfmh",
+        "service_95tyieb",
         "template_q5nx3bs", // Replace with your EmailJS template ID
         formData,
         "c84Nxe3wBTlfc1QQm" // Replace with your EmailJS user ID
@@ -33,7 +39,14 @@ const RegisterSport = () => {
           setMessage(
             "Thanks for letting us know about this location! You should see it on our site shortly."
           );
-          setFormData({ name: "", email: "" });
+          setFormData({
+            name: "",
+            email: "",
+            location: "",
+            sport: "",
+            mainContact: "",
+            message: "",
+          });
         },
         (error) => {
           console.log("Error sending email", error.text);
@@ -44,10 +57,10 @@ const RegisterSport = () => {
 
   return (
     <div className="about-page">
-      <h1>About Us</h1>
       <p>
         We’re passionate about helping people find the sports they love. If
-        we're missing a location, please let us know! know!
+        we're missing a location, please let us know! You should see it
+        reflected on our site shortly.
       </p>
 
       <div className="email-signup">
@@ -72,17 +85,51 @@ const RegisterSport = () => {
             onChange={handleChange}
             required
           />
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="location">Location:</label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
+            type="text"
+            id="location"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor="sport">Sport:</label>
+          <select
+            id="sport"
+            name="sport"
+            value={formData.sport}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>
+              Select a sport
+            </option>
+            {sports.map((sport, index) => (
+              <option key={index} value={sport.name}>
+                {sport.name}
+              </option>
+            ))}
+          </select>
+          <label htmlFor="mainContact">Main Contact:</label>
+          <input
+            type="text"
+            id="mainContact"
+            name="mainContact"
+            value={formData.mainContact}
+            onChange={handleChange}
+          />
+          <label htmlFor="message">General Information:</label>
+          <input
+            type="text"
+            id="message"
+            name="message"
+            value={formData.message}
             onChange={handleChange}
             required
           />
 
-          <button type="submit">Sign Up</button>
+          <button type="submit">Register</button>
         </form>
         {message && <p className="form-message">{message}</p>}
       </div>
