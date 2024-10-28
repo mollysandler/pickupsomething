@@ -19,7 +19,7 @@ const About = () => {
     emailjs
       .send(
         "service_tvcmfmh",
-        "template_q5nx3bs", // Replace with your EmailJS template ID
+        "template_zaqaj4c", // Replace with your EmailJS template ID
         formData,
         "c84Nxe3wBTlfc1QQm" // Replace with your EmailJS user ID
       )
