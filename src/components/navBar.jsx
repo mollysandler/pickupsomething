@@ -9,8 +9,11 @@ const SportButtons = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="navbar-item">
-          <Link to="/search-sports">Search</Link>
+          <Link to="/map">Maps</Link>
         </li>
+        {/* <li className="navbar-item">
+          <Link to="/search-sports">Search</Link>
+        </li> */}
         <li className="navbar-item">
           <Link to="/leaderboard">Leaderboard</Link>
         </li>

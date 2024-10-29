@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Search from "./pages/Search";
 import StartSport from "./pages/StartSport";
 import RegisterSport from "./pages/RegisterSport";
+import Map from "./pages/Map";
 
 import Layout from "./components/Layout"; // Import Layout
 
@@ -22,6 +23,7 @@ function App() {
           {/* Homepage with buttons */}
           <Route path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/map" element={<Map />} />
           <Route path="/search-sports" element={<Search />} />
           <Route path="/start-sport" element={<StartSport />} />
           <Route path="/register-sport" element={<RegisterSport />} />

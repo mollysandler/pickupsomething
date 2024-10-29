@@ -1,14 +1,50 @@
 [
   {
     "town": "Maplewood",
-    "state": "New Jersey"
+    "state": "New Jersey",
+    "latRange": [40.72, 40.73],
+    "lngRange": [-74.29, -74.26]
   },
   {
     "town": "San Luis Obispo",
-    "state": "California"
+    "state": "California",
+    "latRange": [35.27, 35.29],
+    "lngRange": [-120.67, -120.65]
   },
   {
-    "town": "San Fransisco",
-    "state": "California"
+    "town": "San Francisco",
+    "state": "California",
+    "latRange": [37.76, 37.78],
+    "lngRange": [-122.43, -122.4]
+  },
+  {
+    "town": "Oakland",
+    "state": "California",
+    "latRange": [37.75, 37.77],
+    "lngRange": [-122.27, -122.24]
+  },
+  {
+    "town": "San Jose",
+    "state": "California",
+    "latRange": [37.3, 37.35],
+    "lngRange": [-121.85, -121.82]
+  },
+  {
+    "town": "Berkeley",
+    "state": "California",
+    "latRange": [37.85, 37.87],
+    "lngRange": [-122.3, -122.27]
+  },
+  {
+    "town": "Palo Alto",
+    "state": "California",
+    "latRange": [37.44, 37.46],
+    "lngRange": [-122.17, -122.14]
+  },
+  {
+    "town": "Mountain View",
+    "state": "California",
+    "latRange": [37.38, 37.4],
+    "lngRange": [-122.09, -122.06]
   }
 ]

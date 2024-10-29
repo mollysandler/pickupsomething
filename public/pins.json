@@ -1,0 +1,135 @@
+[
+  {
+    "position": [37.7699, -122.2786],
+    "title": "Alameda Park",
+    "description": "Weekly Ultimate Frisbee Game",
+    "contact": "Molly Sandler",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.768, -122.437],
+    "title": "Golden Gate Park",
+    "description": "Casual Ultimate Frisbee on weekends",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.8044, -122.2711],
+    "title": "Lake Merritt",
+    "description": "Evening Ultimate Frisbee Game",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.8716, -122.2727],
+    "title": "Cesar Chavez Park",
+    "description": "Pickup games on Saturdays",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.7534, -122.4205],
+    "title": "Balboa Park",
+    "description": "Ultimate Frisbee meet-up every Thursday",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.4292, -122.1381],
+    "title": "Stanford Oval",
+    "description": "Ultimate Frisbee pickup for all levels",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.5483, -121.9886],
+    "title": "Central Park Fremont",
+    "description": "Sunday morning games",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.7793, -122.4193],
+    "title": "Mission Dolores Park",
+    "description": "Afternoon pickup ultimate games",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.7749, -122.4468],
+    "title": "Panhandle Park",
+    "description": "Evening ultimate games",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.6588, -122.3926],
+    "title": "Seal Point Park",
+    "description": "Weekend ultimate frisbee in San Mateo",
+    "sport": "Ultimate Frisbee"
+  },
+  {
+    "position": [37.7749, -122.4194],
+    "title": "San Francisco Run Club",
+    "description": "Weekly runs through Golden Gate Park.",
+    "sport": "Running"
+  },
+  {
+    "position": [37.8044, -122.2711],
+    "title": "Oakland Running Club",
+    "description": "Group runs every Saturday morning.",
+    "sport": "Running"
+  },
+  {
+    "position": [37.4419, -122.143],
+    "title": "Palo Alto Run Group",
+    "description": "Join us for a community run every Thursday.",
+    "sport": "Running"
+  },
+  {
+    "position": [37.7749, -122.4194],
+    "title": "San Francisco Dodgeball League",
+    "description": "Weekly games at the Mission District gym.",
+    "sport": "Dodgeball"
+  },
+  {
+    "position": [37.4419, -122.143],
+    "title": "Palo Alto Dodgeball Meetup",
+    "description": "Join us every Wednesday for friendly matches.",
+    "sport": "Dodgeball"
+  },
+  {
+    "position": [37.784, -122.4055],
+    "title": "Downtown SF Tennis Club",
+    "description": "Casual matches every Saturday morning.",
+    "sport": "Tennis"
+  },
+  {
+    "position": [37.8716, -122.2727],
+    "title": "Berkeley Tennis Group",
+    "description": "Weekly tennis sessions at Berkeley Marina.",
+    "sport": "Tennis"
+  },
+  {
+    "position": [37.7699, -122.2786],
+    "title": "SF Pickleball Meetup",
+    "description": "Join us for pickleball every Sunday at Golden Gate Park.",
+    "sport": "Pickleball"
+  },
+  {
+    "position": [37.4419, -122.143],
+    "title": "Palo Alto Pickleball Club",
+    "description": "Weekly pickleball games at local courts.",
+    "sport": "Pickleball"
+  },
+  {
+    "position": [37.7749, -122.4194],
+    "title": "SF Community Basketball League",
+    "description": "Join our pick-up games every Tuesday evening.",
+    "sport": "Basketball"
+  },
+  {
+    "position": [37.4419, -122.143],
+    "title": "Palo Alto Basketball Meetup",
+    "description": "Casual games at the local community center.",
+    "sport": "Basketball"
+  },
+  {
+    "position": [37.4419, -122.143],
+    "title": "Palo Alto Tennis Meetup",
+    "description": "Casual matches at the local courts.",
+    "sport": "Tennis"
+  }
+]
