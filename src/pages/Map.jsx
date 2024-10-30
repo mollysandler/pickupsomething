@@ -13,25 +13,35 @@ const sports = [
 ];
 
 const Map = () => {
-  const [selectedSport, setSelectedSport] = useState(sports[0]);
+  const [selectedSport, setSelectedSport] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [locations, setLocations] = useState(locationsData);
+  const [noValidLocations, setNoValidLocations] = useState(false);
 
   const searchLocations = () => {
-    // If searchTerm is empty, return all locations
-    if (!searchTerm) return locations;
+    // If searchTerm is empty and "All" is selected, return all locations
+    if (!searchTerm && selectedSport === "All") return locations;
 
+    // Filter based on the selected sport and search term
     return locations.filter((location) => {
       const townMatch = location.town
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
-      return townMatch; // Match by town name
+
+      // If "All" is selected, include all locations, otherwise filter by sport
+      if (selectedSport === "All") {
+        return townMatch; // Match by town name only
+      }
+
+      return townMatch && location.sport === selectedSport; // Match by sport and town name
     });
   };
 
   useEffect(() => {
     console.log("selected sport: ", selectedSport);
-  }, [selectedSport]);
+    const validLocations = searchLocations().length > 0; // Check if there are valid locations for the current sport
+    setNoValidLocations(!validLocations); // Update state based on validity
+  }, [selectedSport, searchTerm]); // Add searchTerm to dependency array
 
   return (
     <div className="container">
@@ -60,8 +70,16 @@ const Map = () => {
           onClick={() => setSelectedSport("All")}
         >
           All
-        </button>{" "}
+        </button>
       </div>
+
+      {/* Display message if no valid locations */}
+      {/* {noValidLocations && (
+        <div className="no-valid-locations-message">
+          We don't have any sports in this location yet! Let us know if we are
+          missing one <a href="/register-sport">HERE!</a>
+        </div>
+      )} */}
 
       <MapComponent sport={selectedSport} locations={searchLocations()} />
 

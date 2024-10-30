@@ -5,7 +5,7 @@ import Dodgeball from "./pages/sports/Dodgeball";
 import RunClub from "./pages/sports/RunClub";
 import Frisbee from "./pages/sports/Frisbee";
 
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import Leaderboard from "./pages/Leaderboard";
 import About from "./pages/About";
 import Search from "./pages/Search";
@@ -21,7 +21,7 @@ function App() {
       <Layout>
         <Routes>
           {/* Homepage with buttons */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Map />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/map" element={<Map />} />
           <Route path="/search-sports" element={<Search />} />

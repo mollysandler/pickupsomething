@@ -1,5 +1,22 @@
 [
   {
+    "title": "Foster City Ultimate",
+    "description": "Fields: Grass. All skill levels welcome. Fun and friendly. On grassy greens of Leo J. Ryan Park. Once enough players for a 5-5 game, we'll start. Sign up in our mailing list.",
+    "contact": {
+      "name": "Rick",
+      "email": "fcultmt@gmail.com",
+      "website": "https://groups.google.com/forum/#!forum/fc-ult",
+      "mailingList": "https://groups.google.com/forum/#!forum/fc-ult"
+    },
+    "position": [37.55736, -122.27153],
+    "schedule": "Tuesdays 6:30 - 7:30 PM",
+    "lastUpdated": "2024-08-12",
+    "location": {
+      "latitude": 37.55736,
+      "longitude": -122.27153
+    }
+  },
+  {
     "position": [37.7699, -122.2786],
     "title": "Alameda Park",
     "description": "Weekly Ultimate Frisbee Game",

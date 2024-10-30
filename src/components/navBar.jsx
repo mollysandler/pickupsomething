@@ -5,9 +5,9 @@ const SportButtons = () => {
   return (
     <nav className="navbar">
       <ul className="navbar-menu">
-        <li className="navbar-item">
+        {/* <li className="navbar-item">
           <Link to="/">Home</Link>
-        </li>
+        </li> */}
         <li className="navbar-item">
           <Link to="/map">Maps</Link>
         </li>

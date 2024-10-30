@@ -26,9 +26,13 @@ const MapComponent = ({ sport, locations }) => {
         const filteredPins = data.filter((pin) => {
           const inSport =
             sport === "All" || pin.sport.toLowerCase() === sport.toLowerCase();
+
+          // Check for location filtering only when the search term is not empty
           //   const inLocation =
-          //     !locations.length ||
+          //     // sport !== "All" ||
+          //     locations.length > 0 &&
           //     locations.some((location) => {
+          //       console.log(location);
           //       return (
           //         pin.position[0] >= location.latRange[0] &&
           //         pin.position[0] <= location.latRange[1] &&
@@ -37,8 +41,9 @@ const MapComponent = ({ sport, locations }) => {
           //       );
           //     });
 
+          // Return pins matching sport; if "All", return regardless of location
           return inSport;
-          //   && inLocation; // Return pins matching sport and location
+          // && (sport !== "All" || (inLocation && locations.length > 0))
         });
 
         setPins(filteredPins);
@@ -53,7 +58,7 @@ const MapComponent = ({ sport, locations }) => {
   return (
     <MapContainer
       center={[37.7749, -122.4194]} // Centered on the Bay Area
-      zoom={11}
+      zoom={9}
       style={{ height: "75vh", width: "80%" }}
     >
       <TileLayer
