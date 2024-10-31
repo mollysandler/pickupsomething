@@ -73,17 +73,7 @@ const Map = () => {
         </button>
       </div>
 
-      {/* Display message if no valid locations */}
-      {/* {noValidLocations && (
-        <div className="no-valid-locations-message">
-          We don't have any sports in this location yet! Let us know if we are
-          missing one <a href="/register-sport">HERE!</a>
-        </div>
-      )} */}
-
       <MapComponent sport={selectedSport} locations={searchLocations()} />
-
-      <a href="/">Go back</a>
     </div>
   );
 };
