@@ -6,7 +6,7 @@
     "contact": {
       "name": "Josh Cohen",
       "email": "",
-      "website": ""
+      "website": "https://www.facebook.com/SLOdodgeball"
     },
     "position": [35.282752, -120.659616],
     "schedule": "Thursdays at 5:00 PM and Sundays at 2:30 PM",
@@ -21,9 +21,9 @@
     "title": "Damon Garcia Field Ultimate",
     "description": "Outdoor field. Join us for friendly, casual games of ultimate frisbee. All skill levels are welcome. Meet on the grassy fields at Damon Garcia Sports Complex.",
     "contact": {
-      "name": "Dustin Brag",
-      "email": "",
-      "website": ""
+      "name": "Dustin Bragg",
+      "email": "dustin.bragg@gmail.com",
+      "website": "https://www.facebook.com/centralcoastultimate"
     },
     "position": [35.2675, -120.6514],
     "schedule": "Tuesdays at 6:00 PM",
@@ -38,9 +38,9 @@
     "title": "SLO Pickup Ultimate",
     "description": "Outdoor fields. Join us for friendly, casual games of ultimate frisbee. All skill levels are welcome. Meet on the Lower Sport Complex at Cal Poly. Games start as soon as there are enough numbers.",
     "contact": {
-      "name": "Dustin Brag",
-      "email": "",
-      "website": ""
+      "name": "Dustin Bragg",
+      "email": "dustin.bragg@gmail.com",
+      "website": "https://www.facebook.com/centralcoastultimate"
     },
     "position": [35.3039, -120.6655],
     "schedule": "Saturdays at 9:00 AM",
@@ -48,6 +48,74 @@
     "location": {
       "latitude": 35.3039,
       "longitude": -120.6655
+    }
+  },
+  {
+    "sport": "Running",
+    "title": "SLO Run Club",
+    "description": "Social Run Club! All skill levels encouraged. Schedule released monthly, meetups at a different brewery on Wednesdays, and a different coffee shop on Saturdays!",
+    "contact": {
+      "name": "Dustin Bragg",
+      "email": "https://www.instagram.com/runsloclub/",
+      "website": "https://runsloclub.com/"
+    },
+    "position": [35.3028, -120.6655],
+    "schedule": "Wednesdays at 6:30PM, Saturdays at 8:30AM",
+    "lastUpdated": "2024-10-31",
+    "location": {
+      "latitude": 35.3028,
+      "longitude": -120.6655
+    }
+  },
+  {
+    "sport": "Pickleball",
+    "title": "SLO Pickleball",
+    "description": "French Park! Casual and more competitive play! Come out and hang! Other social events too. Please come out!",
+    "contact": {
+      "name": "Connie Hanretty-Church",
+      "email": "slopickleballclub@gmail.com",
+      "website": "https://slopickleball.org/"
+    },
+    "position": [35.24738, -120.63679],
+    "schedule": "Seven days a week, 8:00 AM to dusk, first come first serve basis. ",
+    "lastUpdated": "2024-10-31",
+    "location": {
+      "latitude": 35.24738,
+      "longitude": -120.63679
+    }
+  },
+  {
+    "sport": "Pickleball",
+    "title": "SLO Pickleball",
+    "description": "Meadow Park! Recreational and beginner play! Other social events too! Come out and hang!",
+    "contact": {
+      "name": "Connie Hanretty-Church",
+      "email": "slopickleballclub@gmail.com",
+      "website": "https://slopickleball.org/"
+    },
+    "position": [35.268463, -120.658365],
+    "schedule": "Monday-Friday, 9:00AM to 11:30AM, first come first serve basis.",
+    "lastUpdated": "2024-10-31",
+    "location": {
+      "latitude": 35.268463,
+      "longitude": -120.658365
+    }
+  },
+  {
+    "sport": "Tennis",
+    "title": "SLO Pickleball + Tennis",
+    "description": "French Park Lower Courts! Casual and more competitive play! Come out and hang! Other social events too. Please come out!",
+    "contact": {
+      "name": "Connie Hanretty-Church",
+      "email": "slopickleballclub@gmail.com",
+      "website": "https://slopickleball.org/"
+    },
+    "position": [35.24738, -120.63679],
+    "schedule": "Tuesdays and Wednesdays, 8:00 AM to 12:00PM, first come first serve basis. ",
+    "lastUpdated": "2024-10-31",
+    "location": {
+      "latitude": 35.24738,
+      "longitude": -120.63679
     }
   }
 ]

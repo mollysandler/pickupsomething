@@ -22,12 +22,11 @@ const MapComponent = ({ sport, locations }) => {
         }
         const data = await response.json();
 
-        // Filter pins based on the selected sport and optional location search
-        const filteredPins = data.filter((pin) => {
-          const inSport =
-            sport === "All" || pin.sport.toLowerCase() === sport.toLowerCase();
-          return inSport;
-        });
+        // Filter pins based on the selected sport
+        const filteredPins = data.filter(
+          (pin) =>
+            sport === "All" || pin.sport.toLowerCase() === sport.toLowerCase()
+        );
 
         setPins(filteredPins);
       } catch (error) {
@@ -36,16 +35,13 @@ const MapComponent = ({ sport, locations }) => {
     };
 
     fetchPins();
-  }, [sport, locations]);
+  }, [sport]);
 
-  // Custom component to handle zoom on click
-  const ZoomToMarker = ({ position }) => {
-    const map = useMap();
-    useEffect(() => {
-      map.setView(position, 12, { animate: true }); // Adjust zoom level as needed
-    }, [map, position]);
-
-    return null;
+  const handleMarkerClick = (pin) => {
+    const map = useMap(); // Using useMap instead of mapRef
+    if (map) {
+      map.setView(pin.position, 12, { animate: true });
+    }
   };
 
   return (
@@ -64,30 +60,30 @@ const MapComponent = ({ sport, locations }) => {
           position={pin.position}
           icon={customIcon}
           eventHandlers={{
-            click: () => {
-              // This will zoom to the marker position when clicked
-              setPins((currentPins) =>
-                currentPins.map((currentPin, i) =>
-                  i === idx
-                    ? { ...currentPin, isZoomed: true }
-                    : { ...currentPin, isZoomed: false }
-                )
-              );
-            },
+            click: () => handleMarkerClick(pin),
           }}
         >
           <Popup>
-            <div style={{ textAlign: "left" }}>
-              <h3>{pin.title}</h3>
+            <div
+              style={{
+                textAlign: "left",
+                fontSize: "0.85rem",
+                whiteSpace: "normal",
+                wordWrap: "break-word",
+              }}
+            >
+              <h3 style={{ fontSize: "1rem", margin: "0 0 0.5rem 0" }}>
+                {pin.title}
+              </h3>
               <p>
                 <strong>Description:</strong> {pin.description}
               </p>
               <p>
-                <strong>Contact Name:</strong> {pin.contact?.name}
+                <strong>Organizer Name:</strong> {pin.contact?.name}
               </p>
               {pin.contact?.email && (
                 <p>
-                  <strong>Email:</strong>{" "}
+                  <strong>Contact:</strong>{" "}
                   <a href={`mailto:${pin.contact?.email}`}>
                     {pin.contact?.email}
                   </a>
@@ -125,7 +121,6 @@ const MapComponent = ({ sport, locations }) => {
               </p>
             </div>
           </Popup>
-          {pin.isZoomed && <ZoomToMarker position={pin.position} />}
         </Marker>
       ))}
     </MapContainer>
