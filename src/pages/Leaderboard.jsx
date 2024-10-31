@@ -4,7 +4,11 @@ const Leaderboard = () => {
   return (
     <div className="container">
       <h2>Leaderboard</h2>
-      <p>Here you can see the leaderboard for various sports.</p>
+      <p>
+        <b>Coming Soon:</b> You can see the leaderboards for various sports! Log
+        your sport attendance to contribute!
+      </p>
+
       <a href="/">Go back</a>
     </div>
   );

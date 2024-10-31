@@ -44,7 +44,7 @@ const Map = () => {
 
   return (
     <div className="container">
-      <h2>Welcome to Maps!</h2>
+      <h2>Check out our sports!</h2>
 
       <input
         type="text"
