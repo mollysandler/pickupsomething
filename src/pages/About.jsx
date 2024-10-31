@@ -41,12 +41,14 @@ const About = () => {
   return (
     <div className="about-page">
       <h1>About Us</h1>
-      <p>
-        We’re passionate about helping people find the sports they love. Join
-        our email list to stay updated! If there are new groups in the sports
-        that you subscribe too, or new sports added overall, we will let you
-        know!
-      </p>
+      <div>
+        <p>
+          We’re passionate about helping people find the sports they love. Join
+          our email list to stay updated! If there are new groups in the sports
+          that you subscribe too, or new sports added overall, we will let you
+          know!
+        </p>
+      </div>
 
       <div className="email-signup">
         <h2>Sign Up for Our Email List</h2>

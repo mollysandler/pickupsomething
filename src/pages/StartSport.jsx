@@ -51,6 +51,8 @@ const StartSport = () => {
 
   return (
     <div className="about-page">
+      <h2>Request A Sport</h2>
+
       <p>
         We’re passionate about helping people find the sports they love. If you
         want a sport that we don't have, please let us know here and we will add
@@ -58,7 +60,6 @@ const StartSport = () => {
       </p>
 
       <div className="email-signup">
-        <h2>Request A Sport</h2>
         <form onSubmit={handleSubmit} className="signup-form">
           <label htmlFor="name">Name:</label>
           <input

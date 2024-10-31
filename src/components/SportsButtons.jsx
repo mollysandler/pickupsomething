@@ -11,11 +11,6 @@ const SportButtons = () => {
         </Link>
       </div>
       <div>
-        <Link to="/basketball">
-          <button>Basketball</button>
-        </Link>
-      </div>
-      <div>
         <Link to="/frisbee">
           <button>Ultimate Frisbee</button>
         </Link>

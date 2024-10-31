@@ -57,6 +57,8 @@ const RegisterSport = () => {
 
   return (
     <div className="about-page">
+      <h2>Register Your Sport</h2>
+
       <p>
         We’re passionate about helping people find the sports they love. If
         we're missing a location, please let us know! You should see it
@@ -64,7 +66,6 @@ const RegisterSport = () => {
       </p>
 
       <div className="email-signup">
-        <h2>Register Your Sport</h2>
         <form onSubmit={handleSubmit} className="signup-form">
           <label htmlFor="name">Name:</label>
           <input

@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Pickleball from "./pages/sports/Pickleball";
-import Basketball from "./pages/sports/Basketball";
 import Dodgeball from "./pages/sports/Dodgeball";
 import RunClub from "./pages/sports/RunClub";
 import Frisbee from "./pages/sports/Frisbee";
@@ -29,7 +28,6 @@ function App() {
           <Route path="/register-sport" element={<RegisterSport />} />
           <Route path="/about" element={<About />} />
           <Route path="/pickleball" element={<Pickleball />} />
-          <Route path="/basketball" element={<Basketball />} />
           <Route path="/dodgeball" element={<Dodgeball />} />
           <Route path="/runclub" element={<RunClub />} />
           <Route path="/frisbee" element={<Frisbee />} />

@@ -5,7 +5,6 @@ import "./styles/Map.css";
 
 const sports = [
   "Pickleball",
-  "Basketball",
   "Dodgeball",
   "Running",
   "Ultimate Frisbee",
