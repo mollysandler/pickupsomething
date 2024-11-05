@@ -16,31 +16,40 @@ const Map = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [locations, setLocations] = useState(locationsData);
   const [noValidLocations, setNoValidLocations] = useState(false);
+  const [starredSports, setStarredSports] = useState([]);
 
   const searchLocations = () => {
-    // If searchTerm is empty and "All" is selected, return all locations
     if (!searchTerm && selectedSport === "All") return locations;
 
-    // Filter based on the selected sport and search term
     return locations.filter((location) => {
       const townMatch = location.town
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
 
-      // If "All" is selected, include all locations, otherwise filter by sport
       if (selectedSport === "All") {
-        return townMatch; // Match by town name only
+        return townMatch;
       }
 
-      return townMatch && location.sport === selectedSport; // Match by sport and town name
+      return townMatch && location.sport === selectedSport;
     });
   };
 
   useEffect(() => {
-    console.log("selected sport: ", selectedSport);
-    const validLocations = searchLocations().length > 0; // Check if there are valid locations for the current sport
-    setNoValidLocations(!validLocations); // Update state based on validity
-  }, [selectedSport, searchTerm]); // Add searchTerm to dependency array
+    const validLocations = searchLocations().length > 0;
+    setNoValidLocations(!validLocations);
+  }, [selectedSport, searchTerm]);
+
+  const toggleStarSport = (sport) => {
+    setStarredSports((prev) =>
+      prev.includes(sport) ? prev.filter((s) => s !== sport) : [...prev, sport]
+    );
+  };
+
+  // Sort sports, placing starred ones at the front
+  const sortedSports = [
+    ...starredSports,
+    ...sports.filter((sport) => !starredSports.includes(sport)),
+  ];
 
   return (
     <div className="container">
@@ -55,18 +64,66 @@ const Map = () => {
       />
 
       <div className="tabs">
-        {sports.map((sport, index) => (
+        {sortedSports.map((sport, index) => (
           <button
             key={index}
             className={`tab-button ${selectedSport === sport ? "active" : ""}`}
             onClick={() => setSelectedSport(sport)}
+            style={{
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: selectedSport === sport ? "#87CEFA" : "#ADD8E6", // Light blue background
+              color: "#000", // Black text for contrast
+              border: "none",
+              borderRadius: "5px",
+              padding: "10px 15px",
+              cursor: "pointer",
+              margin: "5px",
+            }}
           >
-            {sport}
+            <span
+              style={{
+                position: "absolute",
+                top: "5px",
+                left: "5px",
+                cursor: "pointer",
+                fontSize: "18px",
+                color: starredSports.includes(sport) ? "#FFD700" : "#000", // Yellow for filled star, black for empty
+                transition: "color 0.3s",
+              }}
+              onMouseEnter={(e) => {
+                if (!starredSports.includes(sport)) {
+                  e.target.style.color = "#FFFACD"; // Light yellow on hover
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!starredSports.includes(sport)) {
+                  e.target.style.color = "#000"; // Revert to black
+                }
+              }}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent button click
+                toggleStarSport(sport);
+              }}
+            >
+              {starredSports.includes(sport) ? "★" : "☆"} {/* Star Icon */}
+            </span>
+            <span style={{ marginLeft: "20px" }}>{sport}</span>
           </button>
         ))}
         <button
           className={`tab-button ${selectedSport === "All" ? "active" : ""}`}
           onClick={() => setSelectedSport("All")}
+          style={{
+            backgroundColor: selectedSport === "All" ? "#87CEFA" : "#ADD8E6", // Light blue background
+            color: "#000", // Black text for contrast
+            border: "none",
+            borderRadius: "5px",
+            padding: "10px 15px",
+            cursor: "pointer",
+            margin: "5px",
+          }}
         >
           All
         </button>
