@@ -4,7 +4,7 @@ import L from "leaflet";
 import pinIconUrl from "../assets/pin.png";
 import "leaflet/dist/leaflet.css";
 
-const MapComponent = ({ sport, locations }) => {
+const MapComponent = ({ sport, locations, currentLocation }) => {
   const customIcon = new L.Icon({
     iconUrl: pinIconUrl,
     iconSize: [25, 41],
@@ -37,30 +37,40 @@ const MapComponent = ({ sport, locations }) => {
     fetchPins();
   }, [sport]);
 
-  const handleMarkerClick = (pin) => {
-    const map = useMap(); // Using useMap instead of mapRef
-    if (map) {
-      map.setView(pin.position, 12, { animate: true });
-    }
+  const SetMapCenter = () => {
+    const map = useMap();
+    useEffect(() => {
+      if (currentLocation) {
+        map.setView([currentLocation.latitude, currentLocation.longitude], 12, {
+          animate: true,
+        });
+      }
+    }, [currentLocation, map]);
+
+    return null;
   };
 
   return (
     <MapContainer
       center={[35.2828, -120.6596]} // Centered on San Luis Obispo
       zoom={8}
-      style={{ height: "75vh", width: "80%" }}
+      style={{ height: "60vh", width: "80%" }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
       />
+      <SetMapCenter /> {/* Adjust the map view based on current location */}
       {pins.map((pin, idx) => (
         <Marker
           key={idx}
           position={pin.position}
           icon={customIcon}
           eventHandlers={{
-            click: () => handleMarkerClick(pin),
+            click: () => {
+              const map = useMap();
+              map.setView(pin.position, 12, { animate: true });
+            },
           }}
         >
           <Popup>

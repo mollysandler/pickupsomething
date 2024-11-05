@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Flex } from "react";
 import MapComponent from "../components/MapComponent";
 import locationsData from "../useful/locations.json"; // Adjust the path as needed
+import MyLocation from "../components/MyLocation"; // Import the new component
+
 import "./styles/Map.css";
 
 const sports = [
@@ -17,6 +19,7 @@ const Map = () => {
   const [locations, setLocations] = useState(locationsData);
   const [noValidLocations, setNoValidLocations] = useState(false);
   const [starredSports, setStarredSports] = useState([]);
+  const [currentLocation, setCurrentLocation] = useState(null);
 
   const searchLocations = () => {
     if (!searchTerm && selectedSport === "All") return locations;
@@ -54,15 +57,23 @@ const Map = () => {
   return (
     <div className="container">
       <h2>Check out our sports!</h2>
+      <div style={{ display: "flex", alignItems: "center", marginTop: "2px" }}>
+        <input
+          type="text"
+          placeholder="Search for a location..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{
+            padding: "8px", // Keep padding consistent
+            width: "200px",
+            marginRight: "10px", // Space between input and button
+            height: "40px", // Set height to ensure consistent size
+          }}
+        />
+        <MyLocation onSetLocation={setCurrentLocation} />
+      </div>
 
-      <input
-        type="text"
-        placeholder="Search for a location..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ marginBottom: "10px", padding: "5px", width: "200px" }}
-      />
-
+      {/* Use the new component */}
       <div className="tabs">
         {sortedSports.map((sport, index) => (
           <button
@@ -128,8 +139,11 @@ const Map = () => {
           All
         </button>
       </div>
-
-      <MapComponent sport={selectedSport} locations={searchLocations()} />
+      <MapComponent
+        sport={selectedSport}
+        locations={searchLocations()}
+        currentLocation={currentLocation} // Pass the current location to the map
+      />
     </div>
   );
 };
