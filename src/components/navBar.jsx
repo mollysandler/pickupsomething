@@ -12,7 +12,7 @@ const SportButtons = () => {
           <Link to="/map">Maps</Link>
         </li>
         <li className="navbar-item">
-          <Link to="/calender">Calender</Link>
+          <Link to="/calendar">Calendar</Link>
         </li>
         {/* <li className="navbar-item">
           <Link to="/search-sports">Search</Link>

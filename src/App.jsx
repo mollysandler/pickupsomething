@@ -11,7 +11,7 @@ import Search from "./pages/Search";
 import StartSport from "./pages/StartSport";
 import RegisterSport from "./pages/RegisterSport";
 import Map from "./pages/Map";
-import Calender from "./pages/Calender";
+import Calendar from "./pages/Calendar";
 
 import Layout from "./components/Layout"; // Import Layout
 
@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<Map />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/map" element={<Map />} />
-          <Route path="/calender" element={<Calender />} />
+          <Route path="/calendar" element={<Calendar />} />
           <Route path="/search-sports" element={<Search />} />
           <Route path="/start-sport" element={<StartSport />} />
           <Route path="/register-sport" element={<RegisterSport />} />

@@ -3,7 +3,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { RRule } from "rrule";
-import "./styles/SportsCalender.css"; // Import your custom styles
+import "./styles/SportsCalendar.css"; // Import your custom styles
 
 const localizer = momentLocalizer(moment);
 
