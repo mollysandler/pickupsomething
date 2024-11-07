@@ -41,7 +41,7 @@ const generateRecurringEvents = (eventData) => {
         dates.forEach((date) => {
           const start = new Date(date);
           const end = new Date(date);
-          end.setHours(start.getHours() + 2); // Assuming events are 2 hours long
+          end.setHours(end.getHours() - start.getHours());
 
           recurringEvents.push({
             id: event.id,
@@ -52,6 +52,7 @@ const generateRecurringEvents = (eventData) => {
             sport: event.sport,
             location: event.location,
             schedule: event.schedule,
+            color: event.color || "blue",
           });
         });
       }
@@ -65,6 +66,7 @@ const generateRecurringEvents = (eventData) => {
         sport: event.sport,
         location: event.location,
         schedule: event.schedule,
+        color: event.color || "blue",
       });
     }
   });
@@ -147,6 +149,16 @@ const SportsCalendar = () => {
     setActiveTab(tab);
   };
 
+  const eventStyleGetter = (event) => {
+    const backgroundColor = event.color || "blue"; // Default to blue if no color attribute
+    return {
+      style: {
+        backgroundColor: backgroundColor, // Set the background color for the event
+        color: "white", // Set the text color to white for contrast
+      },
+    };
+  };
+
   return (
     <div style={{ height: "80vh", margin: "50px" }}>
       <div className="tabs">
@@ -171,6 +183,7 @@ const SportsCalendar = () => {
         endAccessor="end"
         style={{ height: "100%", width: "100%" }}
         onSelectEvent={handleEventClick}
+        eventPropGetter={eventStyleGetter} // Apply custom styles
       />
 
       {/* Small Pop-up with Event Details */}

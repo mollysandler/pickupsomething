@@ -90,7 +90,7 @@
   {
     "sport": "Running",
     "id": "5",
-    "color": "yellow",
+    "color": "#ded226",
     "title": "SLO Run Club",
     "description": "Social Run Club! All skill levels encouraged. Schedule released monthly, meetups at a different brewery on Wednesdays, and a different coffee shop on Saturdays!",
     "contact": {
