@@ -12,6 +12,7 @@ const MapComponent = ({ sport, locations, currentLocation }) => {
   });
 
   const [pins, setPins] = useState([]);
+  const [openPin, setOpenPin] = useState(null); // State to track the currently open pin
 
   useEffect(() => {
     const fetchPins = async () => {
@@ -35,6 +36,11 @@ const MapComponent = ({ sport, locations, currentLocation }) => {
     };
 
     fetchPins();
+  }, [sport]);
+
+  // Close the open pin whenever the sport changes
+  useEffect(() => {
+    setOpenPin(null);
   }, [sport]);
 
   const SetMapCenter = () => {
@@ -68,69 +74,70 @@ const MapComponent = ({ sport, locations, currentLocation }) => {
           icon={customIcon}
           eventHandlers={{
             click: () => {
-              const map = useMap();
-              map.setView(pin.position, 12, { animate: true });
+              setOpenPin(idx); // Set the current pin as the open pin
             },
           }}
         >
-          <Popup>
-            <div
-              style={{
-                textAlign: "left",
-                fontSize: "0.85rem",
-                whiteSpace: "normal",
-                wordWrap: "break-word",
-              }}
-            >
-              <h3 style={{ fontSize: "1rem", margin: "0 0 0.5rem 0" }}>
-                {pin.title}
-              </h3>
-              <p>
-                <strong>Description:</strong> {pin.description}
-              </p>
-              <p>
-                <strong>Organizer Name:</strong> {pin.contact?.name}
-              </p>
-              {pin.contact?.email && (
+          {openPin === idx && (
+            <Popup onClose={() => setOpenPin(null)}>
+              <div
+                style={{
+                  textAlign: "left",
+                  fontSize: "0.85rem",
+                  whiteSpace: "normal",
+                  wordWrap: "break-word",
+                }}
+              >
+                <h3 style={{ fontSize: "1rem", margin: "0 0 0.5rem 0" }}>
+                  {pin.title}
+                </h3>
                 <p>
-                  <strong>Contact:</strong>{" "}
-                  <a href={`mailto:${pin.contact?.email}`}>
-                    {pin.contact?.email}
-                  </a>
+                  <strong>Description:</strong> {pin.description}
                 </p>
-              )}
-              {pin.contact?.website && (
                 <p>
-                  <strong>Website:</strong>{" "}
-                  <a
-                    href={pin.contact?.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {pin.contact?.website}
-                  </a>
+                  <strong>Organizer Name:</strong> {pin.contact?.name}
                 </p>
-              )}
-              {pin.contact?.mailingList && (
+                {pin.contact?.email && (
+                  <p>
+                    <strong>Contact:</strong>{" "}
+                    <a href={`mailto:${pin.contact?.email}`}>
+                      {pin.contact?.email}
+                    </a>
+                  </p>
+                )}
+                {pin.contact?.website && (
+                  <p>
+                    <strong>Website:</strong>{" "}
+                    <a
+                      href={pin.contact?.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {pin.contact?.website}
+                    </a>
+                  </p>
+                )}
+                {pin.contact?.mailingList && (
+                  <p>
+                    <strong>Mailing List:</strong>{" "}
+                    <a
+                      href={pin.contact.mailingList}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {pin.contact.mailingList}
+                    </a>
+                  </p>
+                )}
                 <p>
-                  <strong>Mailing List:</strong>{" "}
-                  <a
-                    href={pin.contact.mailingList}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {pin.contact.mailingList}
-                  </a>
+                  <strong>Schedule:</strong> {pin.schedule}
                 </p>
-              )}
-              <p>
-                <strong>Schedule:</strong> {pin.schedule}
-              </p>
-              <p>
-                <strong>Last Updated:</strong> {pin.lastUpdated}
-              </p>
-            </div>
-          </Popup>
+                <p>
+                  <strong>Last Updated:</strong> {pin.lastUpdated}
+                </p>
+              </div>
+            </Popup>
+          )}
         </Marker>
       ))}
     </MapContainer>
