@@ -1,6 +1,7 @@
 [
   {
     "sport": "Dodgeball",
+    "id": "1",
     "color": "red",
     "title": "Ludwick Community Center Dodgeball",
     "description": "Indoor court. Come join for some casual dodgeball fun. Meet inside the main gym of the Ludwick Community Center. Games start as soon as enough players arrive.",
@@ -22,6 +23,7 @@
   },
   {
     "sport": "Dodgeball",
+    "id": "2",
     "color": "red",
     "title": "Ludwick Community Center Dodgeball",
     "description": "Indoor court. Come join for some casual dodgeball fun. Meet inside the main gym of the Ludwick Community Center. Games start as soon as enough players arrive.",
@@ -43,6 +45,7 @@
   },
   {
     "sport": "Ultimate Frisbee",
+    "id": "3",
     "color": "green",
     "title": "Damon Garcia Field Ultimate",
     "description": "Outdoor field. Join us for friendly, casual games of ultimate frisbee. All skill levels are welcome. Meet on the grassy fields at Damon Garcia Sports Complex.",
@@ -64,6 +67,7 @@
   },
   {
     "sport": "Ultimate Frisbee",
+    "id": "4",
     "color": "green",
     "title": "SLO Pickup Ultimate",
     "description": "Outdoor fields. Join us for friendly, casual games of ultimate frisbee. All skill levels are welcome. Meet on the Lower Sport Complex at Cal Poly. Games start as soon as there are enough numbers.",
@@ -85,6 +89,7 @@
   },
   {
     "sport": "Running",
+    "id": "5",
     "color": "yellow",
     "title": "SLO Run Club",
     "description": "Social Run Club! All skill levels encouraged. Schedule released monthly, meetups at a different brewery on Wednesdays, and a different coffee shop on Saturdays!",
@@ -109,6 +114,7 @@
   },
   {
     "sport": "Pickleball",
+    "id": "6",
     "color": "blue",
     "title": "SLO Pickleball",
     "description": "French Park! Casual and more competitive play! Come out and hang! Other social events too. Please come out!",
@@ -130,6 +136,7 @@
   },
   {
     "sport": "Pickleball",
+    "id": "7",
     "color": "blue",
     "title": "SLO Pickleball",
     "description": "Meadow Park! Recreational and beginner play! Other social events too! Come out and hang!",
@@ -151,6 +158,7 @@
   },
   {
     "sport": "Tennis",
+    "id": "8",
     "color": "orange",
     "title": "SLO Pickleball + Tennis",
     "description": "French Park Lower Courts! Casual and more competitive play! Come out and hang! Other social events too. Please come out!",

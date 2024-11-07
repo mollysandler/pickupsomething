@@ -1,0 +1,62 @@
+/* Custom styles for the popup and personal calendar */
+.popup {
+  position: absolute;
+  width: 300px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  z-index: 1000;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-body {
+  margin-top: 10px;
+}
+
+.popup-footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.popup .close-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.personal-calendar {
+  margin-top: 20px;
+}
+
+.personal-calendar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.personal-calendar ul li {
+  margin-bottom: 10px;
+}
+
+.personal-calendar button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.personal-calendar button:hover {
+  background-color: #c0392b;
+}
+
+.tabs button.active {
+  background-color: #3498db;
+  color: white;
+}

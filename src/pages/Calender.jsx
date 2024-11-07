@@ -3,14 +3,15 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { RRule } from "rrule";
+import "./styles/SportsCalender.css"; // Import your custom styles
 
 const localizer = momentLocalizer(moment);
+
 const generateRecurringEvents = (eventData) => {
   const recurringEvents = [];
 
   eventData.forEach((event) => {
     if (event.schedule && event.start && event.end) {
-      // Parse the days from the schedule
       const daysMap = {
         Sunday: RRule.SU,
         Monday: RRule.MO,
@@ -21,42 +22,49 @@ const generateRecurringEvents = (eventData) => {
         Saturday: RRule.SA,
       };
 
-      const scheduleDays = event.schedule.match(/\b(\w+days?)\b/g); // Extract days from the schedule string
+      const scheduleDays = event.schedule.match(/\b(\w+days?)\b/g);
       const days = scheduleDays
         ?.map((day) => daysMap[day.replace("s", "")])
         .filter(Boolean);
 
       if (days && days.length > 0) {
-        // Create the recurrence rule
         const rule = new RRule({
           freq: RRule.WEEKLY,
           interval: 1,
           byweekday: days,
           dtstart: new Date(event.start),
-          until: new Date("2025-05-31"), // Set an end date for recurrence
+          until: new Date("2025-05-31"),
         });
 
         const dates = rule.all();
 
-        // Generate events for each date in the recurrence
         dates.forEach((date) => {
           const start = new Date(date);
           const end = new Date(date);
-          end.setHours(start.getHours() + 2); // Set duration (e.g., 2 hours)
+          end.setHours(start.getHours() + 2); // Assuming events are 2 hours long
 
           recurringEvents.push({
+            id: event.id,
             title: `${event.sport}: ${event.title}`,
             start,
             end,
+            description: event.description,
+            sport: event.sport,
+            location: event.location,
+            schedule: event.schedule,
           });
         });
       }
     } else if (event.start && event.end) {
-      // Handle non-recurring events
       recurringEvents.push({
+        id: event.id,
         title: `${event.sport}: ${event.title}`,
         start: new Date(event.start),
         end: new Date(event.end),
+        description: event.description,
+        sport: event.sport,
+        location: event.location,
+        schedule: event.schedule,
       });
     }
   });
@@ -66,6 +74,10 @@ const generateRecurringEvents = (eventData) => {
 
 const SportsCalendar = () => {
   const [events, setEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
+  const [personalCalendarEvents, setPersonalCalendarEvents] = useState([]); // State to hold saved events
+  const [activeTab, setActiveTab] = useState("all"); // Track active tab (All Events vs Personal Calendar)
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -76,7 +88,6 @@ const SportsCalendar = () => {
         }
         const data = await response.json();
 
-        // Generate recurring events
         const formattedEvents = generateRecurringEvents(data);
         setEvents(formattedEvents);
       } catch (error) {
@@ -87,15 +98,145 @@ const SportsCalendar = () => {
     fetchEvents();
   }, []);
 
+  useEffect(() => {
+    // Load personal calendar events from localStorage on page load
+    const savedEvents =
+      JSON.parse(localStorage.getItem("personalCalendarEvents")) || [];
+    setPersonalCalendarEvents(savedEvents);
+  }, []);
+
+  const handleEventClick = (event, e) => {
+    const rect = e.target.getBoundingClientRect();
+    setPopupPosition({
+      top: rect.top + window.scrollY - 50,
+      left: rect.left + window.scrollX + rect.width + 10,
+    });
+    setSelectedEvent(event);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedEvent(null);
+  };
+
+  const handleSaveEvent = () => {
+    if (selectedEvent) {
+      const updatedEvents = [...personalCalendarEvents, selectedEvent];
+      setPersonalCalendarEvents(updatedEvents);
+      localStorage.setItem(
+        "personalCalendarEvents",
+        JSON.stringify(updatedEvents)
+      ); // Save to localStorage
+      setSelectedEvent(null); // Close the popup after saving
+    }
+  };
+
+  const handleDeleteEvent = (eventId) => {
+    // Ensure the eventId is correctly passed as a string or number to uniquely identify the event
+    console.log("Deleting event with ID:", eventId); // Debugging to check the eventId
+    const updatedEvents = personalCalendarEvents.filter(
+      (event) => event.id !== eventId
+    );
+    setPersonalCalendarEvents(updatedEvents);
+    localStorage.setItem(
+      "personalCalendarEvents",
+      JSON.stringify(updatedEvents)
+    ); // Update in localStorage
+  };
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <div style={{ height: "80vh", margin: "50px" }}>
+      <div className="tabs">
+        <button
+          onClick={() => handleTabChange("all")}
+          className={activeTab === "all" ? "active" : ""}
+        >
+          All Events
+        </button>
+        <button
+          onClick={() => handleTabChange("personal")}
+          className={activeTab === "personal" ? "active" : ""}
+        >
+          Personal Calendar
+        </button>
+      </div>
+
       <Calendar
         localizer={localizer}
-        events={events}
+        events={activeTab === "all" ? events : personalCalendarEvents}
         startAccessor="start"
         endAccessor="end"
         style={{ height: "100%", width: "100%" }}
+        onSelectEvent={handleEventClick}
       />
+
+      {/* Small Pop-up with Event Details */}
+      {selectedEvent && (
+        <div
+          className="popup"
+          style={{
+            top: `${popupPosition.top}px`,
+            left: `${popupPosition.left}px`,
+          }}
+        >
+          <div className="popup-header">
+            <h5>{selectedEvent.title}</h5>
+            <button className="close-btn" onClick={handleClosePopup}>
+              X
+            </button>
+          </div>
+          <div className="popup-body">
+            <p>
+              <strong>Sport:</strong> {selectedEvent.sport}
+            </p>
+            <p>
+              <strong>Description:</strong> {selectedEvent.description}
+            </p>
+            <p>
+              <strong>Location:</strong> {selectedEvent.location.latitude},{" "}
+              {selectedEvent.location.longitude}
+            </p>
+            <p>
+              <strong>Schedule:</strong> {selectedEvent.schedule}
+            </p>
+            <p>
+              <strong>Start Time:</strong>{" "}
+              {moment(selectedEvent.start).format("MMMM Do YYYY, h:mm a")}
+            </p>
+            <p>
+              <strong>End Time:</strong>{" "}
+              {moment(selectedEvent.end).format("MMMM Do YYYY, h:mm a")}
+            </p>
+          </div>
+          <div className="popup-footer">
+            <button onClick={handleSaveEvent}>Save to Personal Calendar</button>
+          </div>
+        </div>
+      )}
+
+      {/* Personal Calendar Events with Delete Option */}
+      {activeTab === "personal" && (
+        <div className="personal-calendar">
+          <h3>Your Personal Calendar</h3>
+          <ul>
+            {personalCalendarEvents.map((event) => (
+              <li key={event.id}>
+                <div>
+                  <strong>{event.title}</strong> -{" "}
+                  {moment(event.start).format("MMMM Do YYYY, h:mm a")} to{" "}
+                  {moment(event.end).format("MMMM Do YYYY, h:mm a")}
+                </div>
+                <button onClick={() => handleDeleteEvent(event.id)}>
+                  Delete from Calendar
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

@@ -17,9 +17,9 @@ const SportButtons = () => {
         {/* <li className="navbar-item">
           <Link to="/search-sports">Search</Link>
         </li> */}
-        <li className="navbar-item">
+        {/* <li className="navbar-item">
           <Link to="/leaderboard">Leaderboard</Link>
-        </li>
+        </li> */}
         <li className="navbar-item">
           <Link to="/start-sport">Request a Sport</Link>
         </li>
