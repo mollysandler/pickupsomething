@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import "./styles/formStyles.css";
-import sportsData from "../useful/sports.json"; // Import the sports data
+import sportsData from "../../public/sports.json"; // Import the sports data
 
 const RegisterSport = () => {
   const [formData, setFormData] = useState({

@@ -1,25 +1,18 @@
 import { Link } from "react-router-dom";
+import ProfileDropdown from "./ProfileDropdown"; // Import ProfileDropdown
 import "./styles/navBar.css";
 
 const SportButtons = () => {
   return (
     <nav className="navbar">
+      <ProfileDropdown /> {/* Include ProfileDropdown here */}
       <ul className="navbar-menu">
-        {/* <li className="navbar-item">
-          <Link to="/">Home</Link>
-        </li> */}
         <li className="navbar-item">
           <Link to="/map">Maps</Link>
         </li>
         <li className="navbar-item">
           <Link to="/calendar">Calendar</Link>
         </li>
-        {/* <li className="navbar-item">
-          <Link to="/search-sports">Search</Link>
-        </li> */}
-        {/* <li className="navbar-item">
-          <Link to="/leaderboard">Leaderboard</Link>
-        </li> */}
         <li className="navbar-item">
           <Link to="/start-sport">Request a Sport</Link>
         </li>

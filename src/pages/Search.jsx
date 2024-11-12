@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles/searchsports.css"; // Ensure this file contains your custom styles
-import sportsData from "../useful/sports.json";
+import sportsData from "../../public/sports.json";
 import locData from "../useful/locations.json";
 
 const SearchSports = () => {

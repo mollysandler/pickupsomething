@@ -35,6 +35,10 @@
   margin-top: 20px;
 }
 
+.header {
+  margin-bottom: 1000px;
+}
+
 .personal-calendar ul {
   list-style-type: none;
   padding: 0;

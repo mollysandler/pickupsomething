@@ -233,7 +233,7 @@ const SportsCalendar = () => {
       {/* Personal Calendar Events with Delete Option */}
       {activeTab === "personal" && (
         <div className="personal-calendar">
-          <h3>Your Personal Calendar</h3>
+          <h3 className="header">Your Personal Calendar</h3>
           <ul>
             {personalCalendarEvents.map((event) => (
               <li key={event.id}>
