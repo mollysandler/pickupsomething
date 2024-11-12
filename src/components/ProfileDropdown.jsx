@@ -6,7 +6,7 @@ const ProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [profilePic, setProfilePic] = useState(null);
   const [name, setName] = useState("Enter your name");
-  const [pronouns, setPronouns] = useState("Enter your prononus");
+  const [pronouns, setPronouns] = useState("Enter your pronouns");
   const [bio, setBio] = useState("Enter your bio");
 
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -28,10 +28,22 @@ const ProfileDropdown = () => {
     setIsOpen(false);
   };
 
+  const imageStyles = {
+    width: "30px", // Replace with desired width
+    height: "30px", // Replace with desired height
+    borderRadius: "50%", // Ensures the image is circular
+    objectFit: "cover", // Ensures the image scales properly within the container
+  };
+
   return (
     <div className="profile-dropdown-container">
       <div className="profile-logo" onClick={toggleDropdown}>
-        <img src={prof} alt="Profile" />
+        {/* Use the uploaded profile picture if it exists, otherwise use the default */}
+        <img
+          src={profilePic || prof}
+          alt="Profile"
+          style={imageStyles} // Apply consistent size constraints
+        />
       </div>
       {isOpen && (
         <div className={`dropdown-content ${isOpen ? "open" : ""}`}>
@@ -45,8 +57,9 @@ const ProfileDropdown = () => {
               <div>
                 <img
                   src={profilePic}
-                  alt="Profile"
+                  alt="Uploaded Profile"
                   className="uploaded-profile-pic"
+                  style={imageStyles} // Apply same constraints to the uploaded image
                 />
                 <button onClick={handleImageDelete} className="delete-btn">
                   Delete Picture
