@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles/navBar.css";
 import prof from "../assets/profile.png";
 
@@ -9,41 +9,52 @@ const ProfileDropdown = () => {
   const [pronouns, setPronouns] = useState("Enter your pronouns");
   const [bio, setBio] = useState("Enter your bio");
 
+  // Load data from localStorage on component mount
+  useEffect(() => {
+    const storedProfile = JSON.parse(localStorage.getItem("profile"));
+    if (storedProfile) {
+      setName(storedProfile.name);
+      setPronouns(storedProfile.pronouns);
+      setBio(storedProfile.bio);
+      setProfilePic(storedProfile.profilePic);
+    }
+  }, []);
+
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setProfilePic(URL.createObjectURL(file));
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setProfilePic(event.target.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
   const handleImageDelete = () => {
-    setProfilePic(null); // Reset profile picture when deleting
+    setProfilePic(null);
   };
 
   const handleSave = () => {
-    // Save the data (could be an API call or storing in a global state)
-    console.log("Profile saved:", { name, pronouns, bio, profilePic });
+    const profileData = { name, pronouns, bio, profilePic };
+    localStorage.setItem("profile", JSON.stringify(profileData));
+    console.log("Profile saved to localStorage:", profileData);
     setIsOpen(false);
   };
 
   const imageStyles = {
-    width: "30px", // Replace with desired width
-    height: "30px", // Replace with desired height
-    borderRadius: "50%", // Ensures the image is circular
-    objectFit: "cover", // Ensures the image scales properly within the container
+    width: "30px",
+    height: "30px",
+    borderRadius: "50%",
+    objectFit: "cover",
   };
 
   return (
     <div className="profile-dropdown-container">
       <div className="profile-logo" onClick={toggleDropdown}>
-        {/* Use the uploaded profile picture if it exists, otherwise use the default */}
-        <img
-          src={profilePic || prof}
-          alt="Profile"
-          style={imageStyles} // Apply consistent size constraints
-        />
+        <img src={profilePic || prof} alt="Profile" style={imageStyles} />
       </div>
       {isOpen && (
         <div className={`dropdown-content ${isOpen ? "open" : ""}`}>
@@ -59,7 +70,7 @@ const ProfileDropdown = () => {
                   src={profilePic}
                   alt="Uploaded Profile"
                   className="uploaded-profile-pic"
-                  style={imageStyles} // Apply same constraints to the uploaded image
+                  style={imageStyles}
                 />
                 <button onClick={handleImageDelete} className="delete-btn">
                   Delete Picture
