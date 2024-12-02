@@ -111,3 +111,9 @@
   background-color: #444;
   color: white;
 }
+
+.logo-image {
+  height: 40px; /* Adjust size as needed */
+  width: auto;
+  cursor: pointer;
+}

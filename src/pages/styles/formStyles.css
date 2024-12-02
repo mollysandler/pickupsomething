@@ -83,3 +83,22 @@ button:hover {
   color: #28a745; /* Success message color */
   text-align: center; /* Center the message */
 }
+
+.about-page {
+  text-align: center; /* Center-aligns text in the container */
+  margin: 0 auto;
+}
+
+.about-page h2 {
+  font-size: 2rem; /* Adjust as needed */
+  margin-bottom: 1rem;
+  margin-top: 20px;
+}
+
+.about-page p {
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 1.2rem; /* Adjust as needed */
+  margin-bottom: 2rem;
+  line-height: 1.5; /* Improves readability */
+}
