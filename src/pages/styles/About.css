@@ -12,11 +12,12 @@
   border-radius: 10px;
   margin-bottom: 1.5rem;
   object-fit: cover;
+  height: 300px;
 }
 
 .about-us-content h1 {
   font-size: 2.5rem;
-  color: #008080;
+  color: #1aa7ec;
   margin-bottom: 1rem;
 }
 
@@ -26,9 +27,9 @@
   line-height: 1.6;
 }
 
-.about-us-tagline {
+/* .about-us-tagline {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #005757;
+  color: #1aa7ec;
   margin-top: 1rem;
-}
+} */

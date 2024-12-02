@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/About.css"; // Create this CSS file for custom styles
-import banner from "../assets/banner.jpeg";
+import banner from "../assets/pickup.jpeg";
 
 const AboutUs = () => {
   return (
